@@ -15,7 +15,7 @@ extern "C" {
 #include "ua_log.h"
 #include "ua_types_generated.h"
 #include "ua_types_generated_handling.h"
-
+#include "ua_client_request.h"
 /**
  * .. _client:
  *
@@ -85,7 +85,8 @@ void UA_EXPORT UA_Client_reset(UA_Client *client);
 
 /* Delete a client */
 void UA_EXPORT UA_Client_delete(UA_Client *client);
-
+UA_StatusCode UA_Client_addRequest(UA_Client *client, UA_ClientRequest *clientRequest);
+UA_StatusCode UA_Client_iterate(UA_Client *client);
 /**
  * Manage the Connection
  * --------------------- */
@@ -126,6 +127,10 @@ UA_StatusCode UA_EXPORT UA_Client_disconnect(UA_Client *client);
 
 /* Renew the underlying secure channel */
 UA_StatusCode UA_EXPORT UA_Client_manuallyRenewSecureChannel(UA_Client *client);
+
+
+UA_StatusCode UA_Client_addRequest(UA_Client *client, UA_ClientRequest *clientRequest);
+UA_StatusCode UA_Client_iterate(UA_Client *client);
 
 /**
  * .. _client-services:

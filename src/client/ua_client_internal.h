@@ -6,6 +6,7 @@
 #define UA_CLIENT_INTERNAL_H_
 
 #include "ua_securechannel.h"
+#include "ua_client_request.h"
 #include "queue.h"
 
 /**************************/
@@ -58,6 +59,10 @@ typedef enum {
 } UA_Client_Authentication;
 
 struct UA_Client {
+    /*ClientRequest*/
+    UA_ClientRequest *requests;
+    size_t requestSize;
+
     /* State */
     UA_ClientState state;
     UA_ClientConfig config;

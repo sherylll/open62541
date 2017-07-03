@@ -51,6 +51,9 @@ endif()
 add_executable(client client.c)
 target_link_libraries(client open62541 ${open62541_LIBRARIES})
 
+add_executable(client_test_request client_test_request.c)
+target_link_libraries(client_test_request open62541 ${open62541_LIBRARIES})
+
 ####################
 # Feature Examples #
 ####################
@@ -66,6 +69,7 @@ target_link_libraries(server_repeated_job open62541 ${open62541_LIBRARIES})
 
 add_executable(server_inheritance server_inheritance.c)
 target_link_libraries(server_inheritance open62541 ${open62541_LIBRARIES})
+
 
 if(NOT BUILD_SHARED_open62541_LIBRARIES AND UA_BUILD_EXAMPLES_NODESET_COMPILER)
   # needs internal methods which are not exported in the dynamic lib
